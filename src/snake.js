@@ -30,4 +30,23 @@ Snake.prototype={
       return head.isSameCoordAs(bodyPart);
     });
   },
+
+  didHitAnyWall : function(){
+    return this.didHitLeftWall() ||
+    this.didHitTopWall() ||
+    this.didHitBottomWall() ||
+    this.didHitRightWall();
+  },
+  didHitLeftWall :function(){
+    return this.head.x == 0;
+  },
+  didHitRightWall : function(){
+    return this.head.x == 119;
+  },
+  didHitTopWall : function(){
+    return this.head.y == 0;
+  },
+  didHitBottomWall : function(){
+    return this.head.y == 59;
+  },
 }
