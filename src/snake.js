@@ -30,7 +30,4 @@ Snake.prototype={
       return head.isSameCoordAs(bodyPart);
     });
   },
-  didHitAWall : function(){
-    return;
-  },
 }
