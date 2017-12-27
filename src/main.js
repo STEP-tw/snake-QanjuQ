@@ -34,6 +34,10 @@ const changeSnakeDirection=function(event) {
   }
 }
 
+const stopGame = function(){
+  clearInterval(animator);
+};
+
 const addKeyListener=function() {
   let grid=document.getElementById("keys");
   grid.onkeyup=changeSnakeDirection;
@@ -46,7 +50,6 @@ const createSnake=function() {
   body.push(tail);
   body.push(tail.next());
   let head=tail.next().next();
-
   snake=new Snake(head,body);
 }
 
@@ -61,6 +64,7 @@ const startGame=function() {
   createFood(numberOfRows,numberOfCols);
   drawFood(food);
   addKeyListener();
+  console.log(snake);
   animator=setInterval(animateSnake,140);
 }
 
