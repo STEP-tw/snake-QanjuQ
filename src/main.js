@@ -12,11 +12,7 @@ const animateSnake=function() {
   paintBody(oldHead);
   unpaintSnake(oldTail);
   paintHead(head);
-  if(snake.didSnakeEatItself()){
-    handleGameOver();
-    return;
-  }
-  if(snake.didHitAnyWall()){
+  if(snake.didDie()){
     handleGameOver();
     return;
   }
