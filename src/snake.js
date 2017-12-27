@@ -47,6 +47,6 @@ Snake.prototype={
     return this.head.y == 0;
   },
   didHitBottomWall : function(){
-    return this.head.y == 59;
+    return this.head.y == 60;
   },
 }
