@@ -12,14 +12,12 @@ const animateSnake=function() {
   paintBody(oldHead);
   unpaintSnake(oldTail);
   paintHead(head);
-  console.log(snake.head);
   if(snake.didSnakeEatItself()){
-    stopGame();
+    handleGameOver();
     return;
   }
   if(snake.didHitAnyWall()){
-    console.log("hitleft")
-    stopGame();
+    handleGameOver();
     return;
   }
   if(head.isSameCoordAs(food)) {
@@ -28,6 +26,10 @@ const animateSnake=function() {
     drawFood(food);
   }
 }
+
+const handleGameOver = function(){
+  stopGame();
+};
 
 const changeSnakeDirection=function(event) {
   switch (event.code) {
@@ -49,6 +51,8 @@ const stopGame = function(){
 };
 
 const addKeyListener=function() {
+  let startButton = document.getElementById('start');
+  startButton.onclick = () => (location.reload());
   let grid=document.getElementById("keys");
   grid.onkeyup=changeSnakeDirection;
   grid.focus();
@@ -73,9 +77,14 @@ const startGame=function() {
   drawSnake(snake);
   createFood(numberOfRows,numberOfCols);
   drawFood(food);
-  addKeyListener();
-  console.log(snake);
+  // addKeyListener();
   animator=setInterval(animateSnake,200);
+};
+
+const loadGame = function(){
+  addKeyListener();
+  startGame();
 }
 
-window.onload=startGame;
+window.onload = loadGame;
+// window.onload=startGame;
