@@ -31,22 +31,24 @@ Snake.prototype={
     });
   },
 
-  didHitAnyWall : function(){
-    return this.didHitLeftWall() ||
-    this.didHitTopWall() ||
-    this.didHitBottomWall() ||
-    this.didHitRightWall();
+  didDie : function(){
+    let headCoord = this.head;
+    return this.didSnakeEatItself(headCoord) ||
+    this.didHitLeftWall(headCoord) ||
+    this.didHitTopWall(headCoord) ||
+    this.didHitBottomWall(headCoord) ||
+    this.didHitRightWall(headCoord);
   },
-  didHitLeftWall :function(){
-    return this.head.x == 0;
+  didHitLeftWall :function(headCoord){
+    return headCoord.x == 0;
   },
-  didHitRightWall : function(){
-    return this.head.x == 119;
+  didHitRightWall : function(headCoord){
+    return headCoord.x == 119;
   },
-  didHitTopWall : function(){
-    return this.head.y == 0;
+  didHitTopWall : function(headCoord){
+    return headCoord.y == 0;
   },
-  didHitBottomWall : function(){
-    return this.head.y == 59;
+  didHitBottomWall : function(headCoord){
+    return headCoord.y == 59;
   },
 }
