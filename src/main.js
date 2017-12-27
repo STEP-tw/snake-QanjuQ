@@ -28,6 +28,8 @@ const animateSnake=function() {
 }
 
 const handleGameOver = function(){
+  let startButton = document.getElementById('start');
+  startButton.style.visibility = "visible";
   stopGame();
 };
 
@@ -52,6 +54,7 @@ const stopGame = function(){
 
 const addKeyListener=function() {
   let startButton = document.getElementById('start');
+  startButton.style.visibility = "hidden";
   startButton.onclick = () => (location.reload());
   let grid=document.getElementById("keys");
   grid.onkeyup=changeSnakeDirection;
