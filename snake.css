@@ -1,3 +1,9 @@
+#start{
+  position:fixed;
+  text-align: center;
+  left:600px;
+  top:650px;
+}
 .container {
   width: 960px;
   margin: 0 auto;
