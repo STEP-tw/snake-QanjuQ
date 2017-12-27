@@ -12,11 +12,13 @@ const animateSnake=function() {
   paintBody(oldHead);
   unpaintSnake(oldTail);
   paintHead(head);
+  console.log(snake.head);
   if(snake.didSnakeEatItself()){
     stopGame();
     return;
   }
-  if(snake.didHitAWall()){
+  if(snake.didHitAnyWall()){
+    console.log("hitleft")
     stopGame();
     return;
   }
@@ -73,7 +75,7 @@ const startGame=function() {
   drawFood(food);
   addKeyListener();
   console.log(snake);
-  animator=setInterval(animateSnake,140);
+  animator=setInterval(animateSnake,200);
 }
 
 window.onload=startGame;
